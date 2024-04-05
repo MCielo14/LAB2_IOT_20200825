@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2"
+    tools:context=".MainActivity4"
     android:background="#FFFFFF">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -38,11 +38,10 @@
         android:layout_margin="16dp"
         android:layout_marginStart="60dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="68dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCalculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="151dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -52,21 +51,6 @@
             android:text="¡Bienvenido a nuestra Calculadora Virtual: TeleMath! Esta calculadora está diseñada para ayudarte a realizar operaciones matemáticas de manera rápida y sencilla. Puedes utilizar los botones numéricos (0-9) para ingresar tus números, selecciona los botones de operación (+, -, *, /) para realizar sumas, restas, multiplicaciones y divisiones respectivamente. Debes usar el botón de igual (=) para obtener el resultado de tu operación, se tiene el botón CLR que borra tu entrada. Además, tenemos una sección “Historial” donde se visualizará los resultados obtenidos."
             android:textSize="24sp" />
     </ScrollView>
-
-    <Button
-        android:id="@+id/buttonCalculate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="#CDA4FF"
-        android:text="CALCULAR"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
-        android:textColor="#FFFFFF"
-        android:textColorLink="#BB96FB"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -82,8 +66,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="153dp"
+        android:text="Historial"
         android:textSize="25dp"
-        android:text="Indicaciones"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
