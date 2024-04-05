@@ -1,6 +1,9 @@
 package com.example.lab2_20200825;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,12 +16,26 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        Button buttonIndicaciones = findViewById(R.id.button);
+        buttonIndicaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Crea un intent para iniciar MainActivity2
+                Intent intentIndicaciones = new Intent(MainActivity.this, MainActivity2.class);
+                startActivity(intentIndicaciones);
+            }
+        });
+
+        // Configurar el botón Calcular
+        Button buttonCalcular = findViewById(R.id.button2);
+        buttonCalcular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Crea un intent para iniciar MainActivity3
+                Intent intentCalcular = new Intent(MainActivity.this, MainActivity3.class);
+                startActivity(intentCalcular);
+            }
         });
     }
 }
