@@ -19,7 +19,7 @@
         app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
         app:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
 
-        <!-- Primer Icono, alineado al principio (start) -->
+
         <ImageButton
             android:id="@+id/refreshIcon1"
             android:layout_width="48dp"
@@ -31,7 +31,7 @@
             android:foreground="@mipmap/ic_launcher_foreground"
             android:padding="6dp" />
 
-        <!-- Texto central -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             tools:layout_editor_absoluteX="172dp"
             tools:layout_editor_absoluteY="21dp" />
 
-        <!-- Segundo Icono, alineado al final (end) -->
+
         <ImageButton
             android:id="@+id/refreshIcon2"
             android:layout_width="50dp"
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@id/sectionB"
         tools:layout_editor_absoluteX="8dp">
 
-        <!-- Row 1 -->
+
         <Button
             android:id="@+id/button7"
 
@@ -111,7 +111,7 @@
             android:id="@+id/buttonDiv"
             android:text="/" />
 
-        <!-- Row 2 -->
+
         <Button
             android:id="@+id/button4"
 
@@ -131,7 +131,7 @@
             android:id="@+id/buttonMul"
             android:text="*" />
 
-        <!-- Row 3 -->
+
         <Button
             android:id="@+id/button1"
 
@@ -151,7 +151,7 @@
             android:id="@+id/buttonSub"
             android:text="-" />
 
-        <!-- Row 4 -->
+
         <Button
             android:id="@+id/buttonClr"
             android:text="CLR" />

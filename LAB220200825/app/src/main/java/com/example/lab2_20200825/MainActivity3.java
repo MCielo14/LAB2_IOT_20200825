@@ -24,14 +24,12 @@ public class MainActivity3 extends AppCompatActivity {
         sectionA = findViewById(R.id.sectionA);
         sectionB = findViewById(R.id.sectionB);
 
-        // Inicializa las cajas A y B con "0"
         clearCalculator();
 
         setupCalculatorButtons();
 
         ImageButton refreshIcon1 = findViewById(R.id.refreshIcon1);
         refreshIcon1.setOnClickListener(v -> startActivity(new Intent(MainActivity3.this, MainActivity.class)));
-// En MainActivity3, dentro del método onCreate, después de configurar los botones:
         ImageButton historyButton = findViewById(R.id.refreshIcon2);
         historyButton.setOnClickListener(v -> goToHistoryActivity());
 
@@ -70,27 +68,25 @@ public class MainActivity3 extends AppCompatActivity {
     private void onOperationButtonClick(String op) {
         currentOp = op;
         if (firstNumber == 0 && sectionB.getText().toString().equals("0")) {
-            // Esto maneja un caso en el que el usuario elige una operación sin un primer número.
             firstNumber = 0;
             sectionA.setText("0 " + op);
         } else {
             sectionA.setText(firstNumber + " " + op);
         }
-        sectionB.setText("0"); // Prepara la sección B para el segundo número
+        sectionB.setText("0");
     }
 
     private void clearSectionB() {
         secondNumber = 0;
-        sectionB.setText("0"); // Borra solo la sección B y deja la operación actual intacta
+        sectionB.setText("0");
     }
 
     private void clearCalculator() {
-        // Restablece todo a 0
         firstNumber = 0;
         secondNumber = 0;
         currentOp = "";
-        sectionA.setText("0"); // Reinicia la sección A
-        sectionB.setText("0"); // Reinicia la sección B
+        sectionA.setText("0");
+        sectionB.setText("0");
     }
 
     private void calculateResult() {
@@ -114,11 +110,8 @@ public class MainActivity3 extends AppCompatActivity {
         }
 
         if (!error) {
-            // Añade la entrada al historial con el número de resultado y el valor del resultado
             String resultEntry5 = "Resultado " + (history.size() + 1) + ": " + result;
             history.add(resultEntry5);
-
-            // Muestra el resultado en la sección B y reinicia las variables para la nueva operación
             sectionB.setText(String.valueOf(result));
             firstNumber = 0;
             secondNumber = 0;
