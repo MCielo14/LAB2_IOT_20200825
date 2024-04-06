@@ -8,12 +8,14 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class MainActivity3 extends AppCompatActivity {
 
     private TextView sectionA, sectionB;
     private int firstNumber = 0, secondNumber = 0;
     private String currentOp = "";
-
+    private ArrayList<String> history = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +31,10 @@ public class MainActivity3 extends AppCompatActivity {
 
         ImageButton refreshIcon1 = findViewById(R.id.refreshIcon1);
         refreshIcon1.setOnClickListener(v -> startActivity(new Intent(MainActivity3.this, MainActivity.class)));
+// En MainActivity3, dentro del método onCreate, después de configurar los botones:
+        ImageButton historyButton = findViewById(R.id.refreshIcon2);
+        historyButton.setOnClickListener(v -> goToHistoryActivity());
 
-        ImageButton refreshIcon2 = findViewById(R.id.refreshIcon2);
-        refreshIcon2.setOnClickListener(v -> startActivity(new Intent(MainActivity3.this, MainActivity4.class)));
     }
 
     private void setupCalculatorButtons() {
@@ -93,6 +96,8 @@ public class MainActivity3 extends AppCompatActivity {
     private void calculateResult() {
         int result = 0;
         boolean error = false;
+        String resultEntry;
+
         switch (currentOp) {
             case "+": result = firstNumber + secondNumber; break;
             case "-": result = firstNumber - secondNumber; break;
@@ -103,15 +108,27 @@ public class MainActivity3 extends AppCompatActivity {
                 } else {
                     error = true;
                     sectionB.setText("Error");
+                    return;
                 }
                 break;
         }
+
         if (!error) {
-            sectionB.setText(String.valueOf(result)); // Muestra el resultado en la sección B
-            firstNumber = 0; // Prepara firstNumber para la nueva operación
-            secondNumber = 0; // Reinicia secondNumber
-            currentOp = ""; // Limpia la operación actual
-            sectionA.setText("0"); // Asegúrate de que la caja A se reinicia a "0"
+            // Añade la entrada al historial con el número de resultado y el valor del resultado
+            String resultEntry5 = "Resultado " + (history.size() + 1) + ": " + result;
+            history.add(resultEntry5);
+
+            // Muestra el resultado en la sección B y reinicia las variables para la nueva operación
+            sectionB.setText(String.valueOf(result));
+            firstNumber = 0;
+            secondNumber = 0;
+            currentOp = "";
+            sectionA.setText("0");
         }
+    }
+    private void goToHistoryActivity() {
+        Intent intent = new Intent(MainActivity3.this, MainActivity4.class);
+        intent.putStringArrayListExtra("history", history);
+        startActivity(intent);
     }
 }

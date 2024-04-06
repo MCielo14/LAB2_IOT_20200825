@@ -62,24 +62,30 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="300dp"
-        android:layout_height="500dp"
-        android:layout_margin="16dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="220dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:overScrollMode="always"
-            android:scrollbars="vertical"
-            android:text="¡Bienvenido a nuestra Calculadora Virtual: TeleMath! Esta calculadora está diseñada para ayudarte a realizar operaciones matemáticas de manera rápida y sencilla. Puedes utilizar los botones numéricos (0-9) para ingresar tus números, selecciona los botones de operación (+, -, *, /) para realizar sumas, restas, multiplicaciones y divisiones respectivamente. Debes usar el botón de igual (=) para obtener el resultado de tu operación, se tiene el botón CLR que borra tu entrada. Además, tenemos una sección “Historial” donde se visualizará los resultados obtenidos."
-            android:textSize="24sp" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewHistory"
+                android:layout_width="match_parent"
+                android:layout_height="408dp"
+                android:padding="16dp" />
+        </LinearLayout>
     </ScrollView>
 
     <TextView
