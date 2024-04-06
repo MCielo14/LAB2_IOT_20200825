@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_blue"
+        android:title="Azul" />
+    <item android:id="@+id/menu_green"
+        android:title="Verde" />
+    <item android:id="@+id/menu_red"
+        android:title="Rojo" />
+</menu>
